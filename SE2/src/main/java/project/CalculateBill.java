@@ -12,15 +12,16 @@ public class CalculateBill extends javax.swing.JFrame {
 private double reading1;
 private double consumption;
 private Account account;
+private Double Total;
  private Bill bill;
 
     public CalculateBill(double reading1, double consumption) {
         this.reading1 = reading1;
         this.consumption = consumption;
         initComponents();
-                costumerUsage.setText(Double.toString(reading1));
-        this.bill = new Bill();
-        
+        costumerUsage.setText(Double.toString(reading1));
+        bill=Bill.getBIll();
+        account=Account.getInstance();  
         MeterNumber.setText(account.UserData());
         Customername.setText(account.Username1());
         costumerUsage.setText(Double.toString(reading1));
@@ -28,14 +29,8 @@ private Account account;
         Taxamount.setText(Double.toString(bill.tax(consumption)));
         Additionalcharge.setText(Double.toString(bill.additionalCharge1(consumption)));
         Discount.setText(Double.toString(bill.AddDiscount1(consumption)));
-
-//      MeterNumber.setText(account.UserData());
-//        Customername.setText(account.Username1());
-//        costumerUsage.setText(Double.toString(reading1));
-//        Amount.setText(Double.toString(consumption));
-//        Taxamount.setText(Double.toString(bill.tax(consumption)));
-//        Additionalcharge.setText(Double.toString(bill.additionalCharge1(consumption)));
-//        Discount.setText(Double.toString(bill.AddDiscount1(consumption)));
+        Total=Double.parseDouble(Amount.getText())+Double.parseDouble(Taxamount.getText())+Double.parseDouble(Additionalcharge.getText())-Double.parseDouble(Discount.getText());
+        total.setText(Double.toString(Total));
     }
     
     /**
@@ -44,7 +39,19 @@ private Account account;
     public CalculateBill() {
         initComponents();
     }
-
+  public void print() {
+            String meterNo = MeterNumber.getText();
+            String customerName= Customername.getText();
+            String consumption= costumerUsage.getText();
+            txtGenerate.setText(txtGenerate.getText() + "meter no :" + meterNo + "\n");
+            txtGenerate.setText(txtGenerate.getText() + "customer name :" + customerName + "\n");
+            txtGenerate.setText(txtGenerate.getText() + "Consumption :" + consumption + "\n");
+            txtGenerate.setText(txtGenerate.getText() + "Amount :" + Amount.getText() + "\n");
+            txtGenerate.setText(txtGenerate.getText() + "Tax :" + Taxamount.getText() + "\n");
+            txtGenerate.setText(txtGenerate.getText() + "Additional charge :" + Additionalcharge.getText() + "\n");
+            txtGenerate.setText(txtGenerate.getText() + "Discount :" + Discount.getText() + "\n");
+            txtGenerate.setText(txtGenerate.getText() + "Discount :" + total.getText() + "\n");
+        }
   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,10 +77,11 @@ private Account account;
         total = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtGenerate = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         Discount = new javax.swing.JTextField();
         Generate = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,9 +118,9 @@ private Account account;
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel8.setText("Total");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtGenerate.setColumns(20);
+        txtGenerate.setRows(5);
+        jScrollPane1.setViewportView(txtGenerate);
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel9.setText("Discount");
@@ -127,6 +135,13 @@ private Account account;
         Generate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenerateActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Home");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -178,14 +193,17 @@ private Account account;
                                         .addGap(11, 11, 11)
                                         .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(7, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(Generate)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(Generate)
+                        .addGap(32, 32, 32))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,11 +242,11 @@ private Account account;
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Generate))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Generate)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -249,15 +267,18 @@ private Account account;
 
     private void GenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateActionPerformed
 
-        MeterNumber.setText(account.UserData());
-        Customername.setText(account.Username1());
-        costumerUsage.setText(Double.toString(reading1));
-        Amount.setText(Double.toString(consumption));
-        Taxamount.setText(Double.toString(bill.tax(consumption)));
-        Additionalcharge.setText(Double.toString(bill.additionalCharge1(consumption)));
-        Discount.setText(Double.toString(bill.AddDiscount1(consumption)));
+     print();
             // TODO add your handling code here:
     }//GEN-LAST:event_GenerateActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//CustomerDashboard customerdashboard1=new CustomerDashboard(costumerUsage.getText(),Amount.getText(),Taxamount.getText(),Discount.getText(),Additionalcharge.getText(),total.getText());
+//    customerdashboard1.setVisible(true);
+//    this.dispose();   
+    new CustomerDashboard(costumerUsage.getText(),Amount.getText(),Taxamount.getText(),Discount.getText(),Additionalcharge.getText(),total.getText()).setVisible(true);
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,6 +324,7 @@ private Account account;
     private javax.swing.JTextField MeterNumber;
     private javax.swing.JTextField Taxamount;
     private javax.swing.JTextField costumerUsage;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -312,7 +334,7 @@ private Account account;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField total;
+    private javax.swing.JTextArea txtGenerate;
     // End of variables declaration//GEN-END:variables
 }
