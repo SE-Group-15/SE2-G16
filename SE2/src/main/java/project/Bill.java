@@ -20,6 +20,8 @@ public class Bill {
     private double taxrate=0.1;
     private double additionalcharge2;
     private double AddDiscount=0.05;
+        private static Bill instance;
+
 
     public Bill(int bill_ID, ArrayList<Customer> customers, float billAmount, Date billDate, String billStatus) {
         this.bill_ID = bill_ID;
@@ -30,6 +32,12 @@ public class Bill {
     }
 
     public Bill() {
+    }
+      public static Bill getBIll() {
+        if (instance == null) {
+            instance = new Bill();
+        }
+        return instance;
     }
 
 
@@ -107,7 +115,7 @@ public class Bill {
        {
            additionalcharge2 =50;
        }
-double additionalcharge=consumption*additionalcharge2;
+double additionalcharge=additionalcharge2;
         return additionalcharge;
     }
        
