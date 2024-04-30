@@ -12,3 +12,4 @@ public interface PaymentPattern {
     void makePayment(int amount);
     void details();
 }
+
