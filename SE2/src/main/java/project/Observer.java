@@ -6,10 +6,8 @@ package project;
 
 /**
  *
- * @author omarb
+ * @author Ahmed
  */
-public interface PaymentPattern {
-    void makePayment(int amount);
-    void details();
+public interface Observer {
+    public void update(String updated);
 }
-
