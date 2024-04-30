@@ -137,6 +137,7 @@ public class CreditCardPage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 560, 400));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/elecbackground.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 500));
 
