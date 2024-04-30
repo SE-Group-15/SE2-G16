@@ -23,6 +23,7 @@ private String TotalDashboard;
         this.DiscountDashboard = DiscountDashboard;
         this.TotalDashboard = TotalDashboard;
         this.AdditionalDashboard=AdditionalDashboard;
+        initComponents();
     }
 
     /**

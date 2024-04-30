@@ -9,14 +9,23 @@ package project;
  * @author omarb
  */
 public class PaymentMethod extends javax.swing.JFrame {
-
+private String totalpayment;
+private Account account;
     /**
      * Creates new form PaymentMethod
      */
     public PaymentMethod() {
         initComponents();
     }
+    public PaymentMethod(String totalpayment) {
+        this.totalpayment = totalpayment;
+             initComponents();
+        jTextField2.setText(totalpayment);
+        account=Account.getInstance();
+        jTextField1.setText(account.Username1());
 
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
