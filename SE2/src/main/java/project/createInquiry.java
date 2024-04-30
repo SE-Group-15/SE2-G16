@@ -1,25 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package project;
 
-import java.util.Date;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-   
-
-   
-    
-
-public class Inquiry{
-
-    private int inquiryid;
-    private String inquiryinfo;
-    private Date inquirydate;
+public class Inquiry extends javax.swing.JFrame {
     private JLabel accountLabel;
     private JTextField accountField;
     private JButton searchButton;
@@ -27,8 +12,7 @@ public class Inquiry{
     private JTextField inquiryField;
     private JButton submitButton;
 
-
-   public Inquiry() {
+    public Inquiry() {
         initComponents();
 
         setTitle("Inquiry Form");
@@ -38,9 +22,6 @@ public class Inquiry{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String accountNumber = accountField.getText();
-                 
-          JOptionPane.showMessageDialog(Inquiry.this, "Searching for account: " + accountNumber);
-    }
                
             }
         });
@@ -49,13 +30,13 @@ public class Inquiry{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String inquiry = inquiryField.getText();
-                JOptionPane.showMessageDialog(Inquiry.this, "Submitted inquiry: " + inquiry);
+                
             }
         });
     }
 
     private void initComponents() {
-        accountLabel = new JLabel("Account :");
+        accountLabel = new JLabel("Account number:");
         accountField = new JTextField();
         searchButton = new JButton("Search");
         inquiryLabel = new JLabel("What is your inquiry?");
@@ -83,54 +64,37 @@ public class Inquiry{
         submitButton.setBounds(180, 100, 100, 30);
         add(submitButton);
     }
- 
-        
-        
-        
+
     
-
-    public Inquiry(int inquiryid, String inquiryinfo, Date inquirydate) {
-        this.inquiryid = inquiryid;
-        this.inquiryinfo = inquiryinfo;
-        this.inquirydate = inquirydate;
-    }
-
-
-    public int getInquiryid() {
-        return inquiryid;
-    }
-
-    public void setInquiryid(int inquiryid) {
-        this.inquiryid = inquiryid;
-    }
-
-    public String getInquiryinfo() {
-        return inquiryinfo;
-    }
-
-    public void setInquiryinfo(String inquiryinfo) {
-        this.inquiryinfo = inquiryinfo;
-    }
-
-    public Date getInquirydate() {
-        return inquirydate;
-    }
-
-    public void setInquirydate(Date inquirydate) {
-        this.inquirydate = inquirydate;
-    }
-
-
-    public void createInquiry() {
-
-        System.out.println("New inquiry created: " + this.inquiryinfo);
-    }
-
-
-    public static void reviewInquiry() {
-
-        System.out.println("Reviewing inquiries");
- 
-    }
     
-    } 
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Inquiry().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
+
