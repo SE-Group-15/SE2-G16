@@ -61,7 +61,6 @@ public class CustomerDashboard extends javax.swing.JFrame {
 
         jLabel5.setText("Inquries");
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\viewBill2.png")); // NOI18N
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +68,6 @@ public class CustomerDashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\profile2.png")); // NOI18N
         jButton2.setBorder(new javax.swing.border.MatteBorder(null));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,15 +75,10 @@ public class CustomerDashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\payBill5.png")); // NOI18N
         jButton4.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\Question2.jpg")); // NOI18N
         jButton5.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\selogo.png")); // NOI18N
-
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\calc.jpg")); // NOI18N
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,8 +150,8 @@ public class CustomerDashboard extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
+                            .addComponent(jLabel4)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4)
                                 .addComponent(jLabel8)
                                 .addComponent(jLabel5))))
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,8 +167,6 @@ public class CustomerDashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 70, 40));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\back2.jpg")); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,8 +195,8 @@ public class CustomerDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//        new Login_UI().setVisible(true);
-//        this.dispose();
+        new UpdateProfile().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

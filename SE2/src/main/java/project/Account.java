@@ -17,8 +17,18 @@ public class Account {
         return instance;
     }
 
-    public void registerUser(String name, String username, String password, String MeterN) {
-        users.add(new User(name, username, password , MeterN));
+    public void registerUser(String name, String username, String password, String MeterN, String type) {
+        users.add(new User(name, username, password , MeterN, type));
+    }
+    
+    public void UpdateProfile(String newname, String newusername, String MeterN, String confirm){
+        for(User user : users) {
+            if(user.getMeterN().equals(confirm)){
+                user.setName(newname);
+                user.setUsername(newusername);
+                user.setMeterN(MeterN);
+            }
+        }
     }
 
     public boolean verifyLogin(String username, String password) {
@@ -33,6 +43,22 @@ public class Account {
     
     for (User user : users) {
            return user.getMeterN();
+        }
+        return null;
+    }
+    
+     public String gettype(){
+    
+    for (User user : users) {
+           return user.getType();
+        }
+        return null;
+    }
+    
+        public String getName(){
+    
+    for (User user : users) {
+           return user.getname();
         }
         return null;
     }

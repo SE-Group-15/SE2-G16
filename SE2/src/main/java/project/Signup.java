@@ -72,7 +72,7 @@ public class Signup extends javax.swing.JFrame {
 
         jLabel2.setText("Full Name");
 
-        jLabel3.setText("Username");
+        jLabel3.setText("Email");
 
         jLabel4.setText("Password");
 
@@ -136,11 +136,8 @@ public class Signup extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\logose.png")); // NOI18N
-
         jLabel6.setText("New to us?");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\GitHub\\SE2-Group15\\SE2\\Login34.jpg")); // NOI18N
         jLabel7.setText("jLabel7");
 
         jButton2.setText("Login");
@@ -193,7 +190,7 @@ public class Signup extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jLabel8))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,8 +255,9 @@ public class Signup extends javax.swing.JFrame {
 //           
     String MeterID=MeterNO.getText();
     String fullName = fullname.getText();
-    String Username = username.getText();
+    String email = username.getText();
     char[] passwordChars = password.getPassword();
+    String Type = "Customer";
     String password = String.copyValueOf(passwordChars);
 
     // Validate inputs
@@ -267,14 +265,16 @@ public class Signup extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Full name is invalid. Please enter only letters & spaces.");
         return;
     }
-    if (!Username.matches("\\w+")) {
-        JOptionPane.showMessageDialog(this, "Username is invalid. Please enter only letters, numbers, and underscores.");
+    
+   
+        if (!email.matches("^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
+        JOptionPane.showMessageDialog(this, "email is invalid. ");
         return;
     }
 
     
     // Register user
-    account.registerUser(fullName, Username, password,MeterID);
+    account.registerUser(fullName, email, password,MeterID, Type);
     JOptionPane.showMessageDialog(this, "Registration successful!");
         System.out.println(account.UserData());
     // Clear fields

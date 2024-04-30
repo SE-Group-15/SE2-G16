@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class CalculateConsumption extends javax.swing.JFrame {
 // private String MeterN;
+Adminn admin;
 private Account account;
 private int Reading;
 //    public CalculateConsumption(String MeterN) {
@@ -26,6 +27,8 @@ private int Reading;
      */
     public CalculateConsumption() {
      account=Account.getInstance();
+     admin=Adminn.getInstance();
+          this.admin.Addtariff(1, 2, 3, 4);
         initComponents();
         txtmet.setText(account.UserData());
        txtcname.setText(account.Username1());
@@ -267,20 +270,20 @@ private int Reading;
 
        if(rate<900)
        {
-           charge = 1.00;
+           charge = admin.Getc1();
        }
        else if(rate>900 && rate <1200 )
        {
-           charge=2.00;
+           charge=admin.Getc2();
        }
 
        else if(rate>1200 && rate <1500 )
        {
-           charge=3.00;
+           charge=admin.Getc3();
        }
        else
        {
-           charge=4.00;
+           charge=admin.Getc4();
        }
 
        totalconsumption=charge*rate;
