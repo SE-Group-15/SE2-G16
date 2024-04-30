@@ -9,6 +9,10 @@ package project;
  * @author DELL
  */
 public class main {
-    
+   // strat
+//    public static void main3(String[] args) {
+//makePayment(String amount
+//
+//    }
     
 }
