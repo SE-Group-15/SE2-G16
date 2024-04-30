@@ -23,6 +23,7 @@ private String TotalDashboard;
         this.DiscountDashboard = DiscountDashboard;
         this.TotalDashboard = TotalDashboard;
         this.AdditionalDashboard=AdditionalDashboard;
+              initComponents();
     }
 
     /**
@@ -231,8 +232,8 @@ viewBill viewBilll=new viewBill(ConsumptionDashboard,AmountDashboard,TaxDashboar
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-PayBill paybilll=new PayBill(TotalDashboard);
-paybilll.setVisible(true);
+PaymentMethod paybill=new PaymentMethod(TotalDashboard);
+paybill.setVisible(true);
 this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed

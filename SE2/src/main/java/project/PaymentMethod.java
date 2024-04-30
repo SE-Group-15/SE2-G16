@@ -9,12 +9,23 @@ package project;
  * @author omarb
  */
 public class PaymentMethod extends javax.swing.JFrame {
-
+private String totalpayment;
+private Account account;
     /**
      * Creates new form PaymentMethod
      */
     public PaymentMethod() {
         initComponents();
+    }
+
+    public PaymentMethod(String totalpayment) {
+        this.totalpayment = totalpayment;
+             initComponents();
+        jTextField2.setText(totalpayment);
+        account=Account.getInstance();
+        jTextField1.setText(account.Username1());
+           
+
     }
 
     /**
@@ -45,26 +56,18 @@ public class PaymentMethod extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Payment");
 
         jLabel2.setText("(logo)");
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Amount: ");
 
-        jTextField1.setText("jTextField1");
-
         jLabel5.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Pick Payment Method");
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Customer Name");
-
-        jTextField2.setText("jTextField2");
 
         jButton1.setText("Credit Card");
 
@@ -128,7 +131,6 @@ public class PaymentMethod extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 580, 330));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\omarb\\Downloads\\elecbackground.png")); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 440));
 
