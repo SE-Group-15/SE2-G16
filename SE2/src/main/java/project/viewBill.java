@@ -23,7 +23,6 @@ private String viewTotal;
         this.viewAdditional = viewAdditional;
         this.viewDiscount = viewDiscount;
         this.viewTotal = viewTotal;
-                initComponents();
     }
     /**
      * Creates new form viewBill
