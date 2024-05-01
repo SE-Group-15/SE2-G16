@@ -129,11 +129,10 @@ public class CreditCardPage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 560, 400));
 
-<<<<<<< HEAD
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/elecbackground.png"))); // NOI18N
-=======
+
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\omarb\\Downloads\\elecbackground.png")); // NOI18N
->>>>>>> parent of 5aca812 (l)
+parent of 5aca812 (l)
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 500));
 
